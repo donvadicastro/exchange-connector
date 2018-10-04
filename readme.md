@@ -1,6 +1,6 @@
 ## Prerequisites for client
+* install "Git" client
 * install "NodeJS" LTS version
-* install [Microsoft build tools](http://www.microsoft.com/en-us/download/details.aspx?id=40760)
 
 #### install dependencies through command line 
 ```
@@ -14,17 +14,28 @@ choco install nodejs-lts
 ## Prerequisites for local kafka (if needed)
 * install [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
 
-## Installation
-* install command-line compile tool
+## Prerequisites for Raspberry
+* initialize
 ```
-#run PowedShell console with admin rights
+./scripts/raspberry-init.sh
+```
+
+## Download project
+```
+git clone https://github.com/donvadicastro/exchange-connector.git
+cd exchange-connector
+```
+
+## Windows installation
+* install [Microsoft build tools](http://www.microsoft.com/en-us/download/details.aspx?id=40760)
+* run PowerShell console with admin rights 
+```
 npm install --global --production windows-build-tools
-```
-* set config
-```
 npm config set msvs_version 2017 --global
+npm install
 ```
-* install dependencies
+
+## Linux installation
 ```
 npm install
 ```

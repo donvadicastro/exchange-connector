@@ -5,3 +5,5 @@ tar -xvf node-v8.11.3-linux-armv6l.tar.xz
 cd node-v8.11.3-linux-armv6l
 sudo cp -R * /usr/local/
 node -v
+
+sudo apt-get install git

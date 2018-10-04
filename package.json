@@ -36,8 +36,9 @@
     }
   },
   "dependencies": {
+    "ccxt": "^1.17.359",
     "kafka-node": "^3.0.1",
-    "ccxt": "^1.17.359"
+    "websocket": "^1.0.28"
   },
   "devDependencies": {
     "@types/core-js": "^2.5.0",

@@ -1,6 +1,6 @@
-## Prerequisites
-- install "NodeJS" LTS version
-- install [Microsoft build tools](http://www.microsoft.com/en-us/download/details.aspx?id=40760)
+## Prerequisites for client
+* install "NodeJS" LTS version
+* install [Microsoft build tools](http://www.microsoft.com/en-us/download/details.aspx?id=40760)
 
 #### install dependencies through command line 
 ```
@@ -10,6 +10,9 @@
 #install NodeJS
 choco install nodejs-lts
 ```
+
+## Prerequisites for local kafka (if needed)
+* install [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
 
 ## Installation
 * install command-line compile tool
@@ -25,6 +28,11 @@ npm config set msvs_version 2017 --global
 ```
 npm install
 ```
+
+## Run local kafka
+* open "Docker terminal"
+* run "`./scripts/run-kafks.sh`" script
+* do not close terminal
 
 ## Description
 This project aims on creation of integration bridge to help execute financial operation 

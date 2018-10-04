@@ -27,13 +27,14 @@ npm install
 ```
 
 ## Description
-This project is aims to create integration bridge to help execute financial operation with involving 
-different clients based on action type.
+This project aims on creation of integration bridge to help execute financial operation 
+with different clients based on action type involved.
 
-Solution in developed using message-driven architecture, so all communications are happens through Kafka message bus.
+Solution was developed using message-driven architecture, 
+so all communications fulfilled through Kafka message bus.
 
-This particular project is used to define and develop thin clients that will be responsible to process
-business events.
+This particular project was used to define and develop thin clients 
+that will be responsible to process business events.
 
 ## Start client
 ```

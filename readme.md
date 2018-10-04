@@ -2,6 +2,12 @@
 * install "Git" client
 * install "NodeJS" LTS version
 
+## Download project
+```
+git clone https://github.com/donvadicastro/exchange-connector.git
+cd exchange-connector
+```
+
 #### install dependencies through command line 
 ```
 #install choco
@@ -18,12 +24,6 @@ choco install nodejs-lts
 * initialize
 ```
 ./scripts/raspberry-init.sh
-```
-
-## Download project
-```
-git clone https://github.com/donvadicastro/exchange-connector.git
-cd exchange-connector
 ```
 
 ## Windows installation

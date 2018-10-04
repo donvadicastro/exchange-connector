@@ -128,4 +128,5 @@ node tests/sendMessage.js <topicName> <message>
 
 when:
 * topicName - name of the topic data will be posted to
-* message - string representation of message payload in JSON format. Example: "{\"exchange\": \"exmo\", \"symbol\": \"ZEC/USD\", \"type\": \"limit\", \"side\": \"buy\", \"amount\": 0.01, \"price\": 50}"
+* message - string representation of message payload in JSON format. 
+Example: `"{\"exchange\": \"exmo\", \"symbol\": \"ZEC/USD\", \"type\": \"limit\", \"side\": \"buy\", \"amount\": 0.01, \"price\": 50}"`

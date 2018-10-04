@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "tsc && node index.js",
+    "test": "tsc && jest"
   },
   "author": "",
   "license": "ISC",
@@ -42,6 +43,7 @@
     "@types/core-js": "^2.5.0",
     "@types/jest": "^23.3.2",
     "@types/kafka-node": "^2.0.7",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "typescript": "^3.1.1"
   }
 }

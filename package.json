@@ -25,12 +25,12 @@
         "enableRateLimit": true
       },
       "exmo": {
-        "apiKey": "K-6bbd9fc56c0ac8a6290e96aec4265fe206536e7b",
-        "secret": "S-90b9a717c68bd759580dc4293fa386f4b5dcc479"
+        "apiKey": "",
+        "secret": ""
       },
       "binance": {
-        "apiKey": "JnBZuIo8aP7CpEPXKaWS5jQ8VwihMOWfP7UunhEL6I0gpBzzMMUUjEJdLGQLO3KM",
-        "secret": "vxDTk5Rn6MQY1vHERiWvEHPO5lSBuTFeAAcXdwcbmbngcqLnNaeE82lvcUUn9arR"
+        "apiKey": "",
+        "secret": ""
       }
     }
   },

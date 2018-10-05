@@ -2,12 +2,6 @@
 * install "[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)" client
 * install "[NodeJS](https://nodejs.org)" LTS version
 
-## Download project
-```
-git clone https://github.com/donvadicastro/exchange-connector.git
-cd exchange-connector
-```
-
 #### install dependencies through command line 
 ```
 #install choco
@@ -18,6 +12,12 @@ choco install nodejs-lts
 
 #install Git
 choco install git
+```
+
+## Download project
+```
+git clone https://github.com/donvadicastro/exchange-connector.git
+cd exchange-connector
 ```
 
 ## Prerequisites for local kafka (if needed)

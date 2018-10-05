@@ -1,9 +1,6 @@
 import {ExchangeConnectorProcessBase} from "./base/processBase";
 import {ICreateOrderMessage} from "../contracts/messages/createOrderMessage";
 
-const config = require('../package.json');
-const ccxt = require('ccxt');
-
 export class CreateOrder extends ExchangeConnectorProcessBase {
     onMessage(message: ICreateOrderMessage) {
         const exchange = this.getExchange(message.exchange);

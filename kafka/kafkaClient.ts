@@ -16,7 +16,7 @@ export class KafkaClientExt {
     public topics: string[] = [];
 
     constructor() {
-        this.client = new KafkaClient({kafkaHost: config.kafka.url + ':9092', clientId: "exchange-connector"});
+        this.client = new KafkaClient({kafkaHost: config.kafka.url, clientId: "exchange-connector"});
         this.producer = new HighLevelProducer(this.client);
     }
 

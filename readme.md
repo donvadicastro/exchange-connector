@@ -1,6 +1,6 @@
 ## Prerequisites for client
-* install "Git" client
-* install "NodeJS" LTS version
+* install "[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)" client
+* install "[NodeJS](https://nodejs.org)" LTS version
 
 ## Download project
 ```
@@ -15,6 +15,9 @@ cd exchange-connector
 
 #install NodeJS
 choco install nodejs-lts
+
+#install Git
+choco install git
 ```
 
 ## Prerequisites for local kafka (if needed)

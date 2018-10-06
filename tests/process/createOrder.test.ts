@@ -5,7 +5,7 @@ const ccxt = require('ccxt');
 
 describe('CreateOrder', () => {
     const kafka = new KafkaClientExt();
-    const createOrder = new CreateOrder(kafka, 'a', 'b');
+    const createOrder = new CreateOrder(kafka, ['a'], 'b');
 
     it('check incorrecnt exchange', () => {
         spyOn(kafka, 'sendError');

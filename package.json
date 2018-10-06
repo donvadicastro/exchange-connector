@@ -11,7 +11,6 @@
   "license": "ISC",
   "kafka": {
     "url": "192.168.99.100:9092",
-
     "consumer": {
       "autoCommit": true,
       "fetchMaxWaitMs": 1000,
@@ -38,6 +37,7 @@
   },
   "dependencies": {
     "ccxt": "^1.17.359",
+    "chalk": "^2.4.1",
     "kafka-node": "^3.0.1",
     "websocket": "^1.0.28"
   },

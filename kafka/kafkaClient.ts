@@ -1,9 +1,7 @@
 import {utils} from "../utils";
-import {
-    Client, Consumer, HighLevelConsumer, HighLevelProducer, KafkaClient, Message, Producer,
-    TopicsNotExistError
-} from "kafka-node";
+import {ConsumerGroup, HighLevelProducer, KafkaClient, Message} from "kafka-node";
 
+const chalk = require('chalk');
 const config = require('../package.json');
 
 /**
@@ -34,19 +32,20 @@ export class KafkaClientExt {
 
     public sendError(data: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
+            console.log(chalk.red('ERROR:'), data);
             this.producer.send([{ topic: 'exchange-connector-error', messages: utils.encode(data), partition: 0}],
                 (error, data) => error ? reject(error) : resolve())
         });
     }
 
-    public listen(topic: string, callback: (data: any) => void, errorCallback: (error: any) => void): Consumer {
-        const consumer = new Consumer(this.client, [{topic: topic}], config.kafka.consumer);
-        console.log(`Connecting to "${topic}" topic`);
+    public listen(topics: [string], groupId: string, callback: (data: any) => void, errorCallback: (error: any) => void): ConsumerGroup {
+        const consumerGroup = new ConsumerGroup({kafkaHost: config.kafka.url, groupId: groupId + 'Group'}, topics);
 
-        consumer.on('message', (message: Message) => callback(utils.decode(message)));
-        consumer.on('error', error => errorCallback(error));
+        console.log(`Connecting to "${topics}" topic`);
+        consumerGroup.on('message', (message: Message) => callback(utils.decode(message)));
+        consumerGroup.on('error', error => errorCallback(error));
 
-        return consumer;
+        return consumerGroup;
     }
 
     private connect(): Promise<void> {

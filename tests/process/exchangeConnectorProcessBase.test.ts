@@ -1,7 +1,7 @@
 import {ExchangeConnectorProcessBase} from "../../process/base/processBase";
 import {KafkaClientExt} from "../../kafka/kafkaClient";
 
-const connectorBase = new ExchangeConnectorProcessBase(new KafkaClientExt(), '', '');
+const connectorBase = new ExchangeConnectorProcessBase(new KafkaClientExt(), [''], '');
 
 describe('ExchangeConnectorProcessBase', () => {
     it('should get credentials', () => {

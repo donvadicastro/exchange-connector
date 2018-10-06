@@ -1,21 +1,26 @@
 import {KafkaClientExt} from "../../kafka/kafkaClient";
 import {exchanges} from "ccxt";
+import {ConsumerGroup} from "kafka-node";
+import chalk from "chalk";
 
 const config = require('../../package.json');
 const ccxt = require('ccxt');
 
 export class ExchangeConnectorProcessBase {
     kafkaClient: KafkaClientExt;
-    topicIn: string;
+    kafkaConsumer: ConsumerGroup | null;
+
+    topicIn: [string];
     topicOut: string;
 
 
-    constructor(kafkaClient: KafkaClientExt, topicIn: string, topicOut: string) {
+    constructor(kafkaClient: KafkaClientExt, topicIn: [string], topicOut: string) {
         this.kafkaClient = kafkaClient;
         this.topicIn = topicIn;
         this.topicOut = topicOut;
 
-        this.kafkaClient.topics.push(topicIn, topicOut);
+        this.kafkaClient.topics.push(...topicIn, topicOut);
+        this.kafkaConsumer = null;
     }
 
     getExchange(exchangeName: string): any {
@@ -28,13 +33,14 @@ export class ExchangeConnectorProcessBase {
     }
 
     public run() {
-        this.kafkaClient.listen(this.topicIn, this.onMessage.bind(this), this.onError.bind(this));
+        this.kafkaConsumer = this.kafkaClient.listen(this.topicIn, this.constructor.name, this.onMessage.bind(this), this.onError.bind(this));
     }
 
     protected onMessage(message: any) {
     }
 
     protected onError(error: any) {
+        console.log(chalk.red('ERROR:'), `Consumer "${this.constructor.name}" error: ${error}`);
     }
 
     protected send(data: any) {

@@ -1,6 +1,6 @@
 import {KafkaClientExt} from "../../kafka/kafkaClient";
 import {exchanges} from "ccxt";
-import {ConsumerGroup} from "kafka-node";
+import {ConsumerGroup, Message} from "kafka-node";
 import chalk from "chalk";
 
 const config = require('../../package.json');
@@ -36,7 +36,7 @@ export class ExchangeConnectorProcessBase {
         this.kafkaConsumer = this.kafkaClient.listen(this.topicIn, this.constructor.name, this.onMessage.bind(this), this.onError.bind(this));
     }
 
-    protected onMessage(message: any) {
+    protected onMessage(message: any, kafkaMessage?: Message) {
     }
 
     protected onError(error: any) {

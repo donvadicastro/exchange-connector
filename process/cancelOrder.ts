@@ -1,8 +1,9 @@
 import {ExchangeConnectorProcessBase} from "./base/processBase";
 import {ICancelOrderMessage} from "../contracts/messages/cancelOrderMessage";
+import {Message} from "kafka-node";
 
 export class CancelOrder extends ExchangeConnectorProcessBase {
-    onMessage(message: ICancelOrderMessage) {
+    onMessage(message: ICancelOrderMessage, kafkaMessage?: Message) {
         const exchange = this.getExchange(message.exchange);
 
         //handle invalid exchange properly

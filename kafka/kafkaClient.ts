@@ -38,11 +38,11 @@ export class KafkaClientExt {
         });
     }
 
-    public listen(topics: string[], groupId: string, callback: (data: any) => void, errorCallback: (error: any) => void): ConsumerGroup {
+    public listen(topics: string[], groupId: string, callback: (data: any, message: Message) => void, errorCallback: (error: any) => void): ConsumerGroup {
         const consumerGroup = new ConsumerGroup({kafkaHost: config.kafka.url, groupId: groupId + 'Group'}, topics);
 
         console.log(`Connecting to "${topics}" topics`);
-        consumerGroup.on('message', (message: Message) => callback(utils.decode(message)));
+        consumerGroup.on('message', (message: Message) => callback(utils.decode(message), message));
         consumerGroup.on('error', error => errorCallback(error));
 
         return consumerGroup;

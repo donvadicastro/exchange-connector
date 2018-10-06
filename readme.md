@@ -96,7 +96,7 @@ Need to be implemented action that will be triggered on message.
 Example:
 ```typescript
 export class CreateOrder extends ExchangeConnectorProcessBase {
-    onMessage(message: ICreateOrderMessage) {
+    onMessage(message: ICreateOrderMessage, kafkaMessage?: Message) {
         const exchange = this.getExchange(message.exchange);
 
         //handle invalid exchange properly

@@ -3,7 +3,7 @@ import {ICreateOrderMessage} from "../contracts/messages/createOrderMessage";
 import {Message} from "kafka-node";
 
 export class CreateOrder extends ExchangeConnectorProcessBase {
-    onMessage(message: ICreateOrderMessage, kafkaMessage?: Message) {
+    onMessage(message: ICreateOrderMessage, kafkaMessage: Message) {
         const exchange = this.getExchange(message.exchange);
 
         if(!exchange) {

@@ -36,7 +36,7 @@ export class ExchangeConnectorProcessBase {
         this.kafkaConsumer = this.kafkaClient.listen(this.topicIn, this.constructor.name, this.onMessage.bind(this), this.onError.bind(this));
     }
 
-    protected onMessage(message: any, kafkaMessage?: Message) {
+    protected onMessage(message: any, kafkaMessage: Message) {
     }
 
     protected onError(error: any) {

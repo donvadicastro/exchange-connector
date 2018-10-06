@@ -10,11 +10,11 @@ export class ExchangeConnectorProcessBase {
     kafkaClient: KafkaClientExt;
     kafkaConsumer: ConsumerGroup | null;
 
-    topicIn: [string];
+    topicIn: string[];
     topicOut: string;
 
 
-    constructor(kafkaClient: KafkaClientExt, topicIn: [string], topicOut: string) {
+    constructor(kafkaClient: KafkaClientExt, topicIn: string[], topicOut: string) {
         this.kafkaClient = kafkaClient;
         this.topicIn = topicIn;
         this.topicOut = topicOut;

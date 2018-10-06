@@ -93,10 +93,15 @@ export interface ICreateOrderMessage {
 All executors are stored in "process" folder and are represented as TypeScript class inherited from "ExchangeConnectorProcessBase" base class.
 Need to be implemented action that will be triggered on message.
 
+To differentiate messages from different topics in single message handler - check `kafkaMessage.topic` value.
+
 Example:
 ```typescript
+import {ExchangeConnectorProcessBase} from "./base/processBase";
+import {Message} from "kafka-node";
+
 export class CreateOrder extends ExchangeConnectorProcessBase {
-    onMessage(message: ICreateOrderMessage, kafkaMessage?: Message) {
+    onMessage(message: ICreateOrderMessage, kafkaMessage: Message) {
         const exchange = this.getExchange(message.exchange);
 
         //handle invalid exchange properly
@@ -125,7 +130,7 @@ Example:
 const client: KafkaClientExt = new KafkaClientExt();
 
 //create executor instance, when 
-const createOrderProcess = new CreateOrder(client, 'topic-to-read-messages-from', 'topic-to-generate-messages-to');
+const createOrderProcess = new CreateOrder(client, ['topic-to-read-messages-from'], 'topic-to-generate-messages-to');
 
 client.initialize().then(() => {
     //start executor to handle events
